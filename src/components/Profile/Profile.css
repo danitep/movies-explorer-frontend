@@ -1,0 +1,156 @@
+/*Общие свойства блока*/
+.profile{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    background: rgba(250, 250, 250, 1);
+}
+
+/*Свойства содержимого, не включая header*/
+.profile__container{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: rgba(255, 255, 255, 1);
+}
+
+/*Свойства текста приветствия*/
+.profile__greeting{
+    margin: 74px auto 0 auto;
+    padding: 0;
+    max-width: 80%;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29.05px;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+@media screen and (max-width:1280px) {
+    .profile__greeting{
+        margin-top: calc(236px + (100vw - 768px) * (74 - 236) / (1280 - 768));
+    }
+}
+
+@media screen and (max-width:768px) {
+    .profile__greeting{
+        margin-top: calc(70px + (100vw - 320px) * (236 - 70) / (768 - 320));
+    }
+}
+
+@media screen and (max-width:320px) {
+    .profile__greeting{
+        margin-top: 70px;
+    }
+}
+
+/*Свойства блока с полями*/
+.profile__fields{
+    margin-top: 123px;
+    margin-right: calc((100% - 410px) / 2);
+    margin-bottom: 0;
+    margin-left: calc((100% - 410px) / 2);
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width:1280px) {
+    .profile__fields{
+        margin-top: calc(96px + (100vw - 768px) * (123 - 96) / (1280 - 768));
+        margin-right: calc(179px + (100vw - 768px) * (435 - 179) / (1280 - 768));
+        margin-left: calc(179px + (100vw - 768px) * (435 - 179) / (1280 - 768));
+    }
+}
+
+@media screen and (max-width:768px) {
+    .profile__fields{
+        margin-top: calc(80px + (100vw - 320px) * (96 - 80) / (768 - 320));
+        margin-right: calc(30px + (100vw - 320px) * (179 - 30) / (768 - 320));
+        margin-left: calc(30px + (100vw - 320px) * (179 - 30) / (768 - 320));
+    }
+}
+
+@media screen and (max-width:320px) {
+    .profile__fields{
+        margin-top: 80px;
+        margin-right: 30px;
+        margin-left: 30px;
+    }
+}
+
+/*Свойства блока взаимодействия с профилем*/
+.profile__buttons{
+    margin-top: 220px;
+    margin-right: calc((100% - 410px) / 2);
+    margin-bottom: 70px;
+    margin-left: calc((100% - 410px) / 2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 13px;
+    line-height: 15.73px;
+    text-align: center;
+}
+
+@media screen and (max-width:1280px) {
+    .profile__buttons{
+        margin-top: calc(210px + (100vw - 768px) * (220 - 210) / (1280 - 768));
+        margin-right: calc(179px + (100vw - 768px) * (435 - 179) / (1280 - 768));
+        margin-bottom: calc(269px + (100vw - 768px) * (70 - 269) / (1280 - 768));
+        margin-left: calc(179px + (100vw - 768px) * (435 - 179) / (1280 - 768));
+    }
+}
+
+@media screen and (max-width:768px) {
+    .profile__buttons{
+        margin-top: calc(379px + (100vw - 320px) * (210 - 379) / (768 - 320));
+        margin-right: calc(10px + (100vw - 320px) * (179 - 10) / (768 - 320));
+        margin-bottom: calc(40px + (100vw - 320px) * (269 - 40) / (768 - 320));
+        margin-left: calc(10px + (100vw - 320px) * (179 - 10) / (768 - 320));
+        font-size: calc(12px + (100vw - 320px) * (13 - 12) / (768 - 320));
+        line-height: calc(14.52px + (100vw - 320px) * (15.73 - 14.52) / (768 - 320));
+    }
+}
+
+@media screen and (max-width:320px) {
+    .profile__buttons{
+        margin-top: 379px;
+        margin-right: 10px;
+        margin-bottom: 40px;
+        margin-left: 10px;
+        font-size: 12px;
+        line-height: 14.52px;
+    }
+}
+/*Свойства текстов*/
+.profile__redact{
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+    cursor: pointer;
+    transition-property: opacity;
+    transition-duration: 0.3s;
+}
+
+.profile__redact:hover{
+    opacity: 0.5;
+}
+
+.profile__exit{
+    margin: 0 0 0 0;
+    padding: 16px 0 0 0;
+    text-decoration: none;
+    font-weight: 500;
+    color: rgba(238, 52, 101, 1);
+    transition-property: opacity;
+    transition-duration: 0.3s;
+}
+
+.profile__exit:hover{
+    opacity: 0.5;
+}

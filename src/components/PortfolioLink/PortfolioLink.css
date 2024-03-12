@@ -1,0 +1,94 @@
+/*Свойства ссылок*/
+.portfolio-link{
+    margin: 0;
+    padding: 20px 0 10px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-decoration: none;
+    color: #000;
+    border-bottom: rgba(230, 230, 230, 1) solid 1px;
+    transition-property: opacity;
+    transition-duration: 0.3s;
+}
+
+.portfolio-link:hover{
+    opacity: 0.5;
+}
+
+@media screen and (max-width:768px) {
+    .portfolio-link{
+        padding-bottom: calc(20px + (100vw - 320px) * (10 - 20) / (768 - 320));
+    }
+}
+
+@media screen and (max-width:320px) {
+    .portfolio-link{
+        padding-bottom: 20px;
+    }
+}
+
+.portfolio-link:last-child{
+    border: none;
+}
+
+.portfolio-link__text{
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 50px;
+    letter-spacing: -1px;
+}
+
+@media screen and (max-width:1280px) {
+    .portfolio-link__text{
+        font-size: calc(28px + (100vw - 768px) * (30 - 28) / (1280 - 768));
+    }
+}
+
+@media screen and (max-width:768px) {
+    .portfolio-link__text{
+        font-size: calc(18px + (100vw - 320px) * (28 - 18) / (768 - 320));
+        line-height: calc(28px + (100vw - 320px) * (50 - 28) / (768 - 320));
+    }
+}
+
+@media screen and (max-width:320px) {
+    .portfolio-link__text{
+        font-size: 18px;
+        line-height: 28px;
+    }
+}
+
+/*Свойства иконки-стрелки*/
+.portfolio-link__arrow{
+    margin: 0;
+    padding: 0;
+    font-family: Inter;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 60px;
+    text-align: left;
+
+}
+
+@media screen and (max-width:1280px) {
+    .portfolio-link__arrow{
+        font-size: calc(28px + (100vw - 768px) * (30 - 28) / (1280 - 768));
+    }
+}
+
+@media screen and (max-width:768px) {
+    .portfolio-link__arrow{
+        font-size: calc(18px + (100vw - 320px) * (28 - 18) / (768 - 320));
+        line-height: calc(28px + (100vw - 320px) * (60 - 28) / (768 - 320));
+    }
+}
+
+@media screen and (max-width:320px) {
+    .portfolio-link__arrow{
+        font-size: 18px;
+        line-height: 28px;
+    }
+}

@@ -1,0 +1,72 @@
+/*Общие настройки*/
+@import url(./vendor/normalize.css);
+@import url(./vendor/fonts/inter.css);
+
+
+/*Настройки блока page*/
+@import url(./components/App/App.css);
+
+
+/*Настройки блока header*/
+@import url(./components/Header/Header.css);
+
+/*Настройки блока main*/
+@import url(./components/Main/Main.css);
+/*Promo*/
+@import url(./components/Promo/Promo.css);
+/*NavTab*/
+@import url(./components/NavTab/NavTab.css);
+/*AboutProject*/
+@import url(./components/AboutProject/AboutProject.css);
+@import url(./components/BlockTitle/BlockTitle.css);
+@import url(./components/Border/Border.css);
+/*Techs*/
+@import url(./components/Techs/Techs.css);
+/*AboutMe*/
+@import url(./components/AboutMe/AboutMe.css);
+@import url(./components/Portfolio/Portfolio.css);
+@import url(./components/PortfolioLink/PortfolioLink.css);
+/*Footer*/
+@import url(./components/Footer/Footer.css);
+
+/*Настройки блока Profile*/
+@import url(./components/Profile/Profile.css);
+@import url(./components/ProfileField/ProfileField.css);
+
+/*Настройки блока Register*/
+@import url(./components/Register/Register.css);
+@import url(./components//SignUpIn/SignUpIn.css);
+
+/*Настройки блока Login*/
+@import url(./components/Login/Login.css);
+
+/*Настройки блока Movies*/
+@import url(./components/Movies/Movies.css);
+@import url(./components/SearchForm/SearchForm.css);
+@import url(./components/FormSwitch/FormSwitch.css);
+@import url(./components/MoviesCardList/MoviesCardList.css);
+@import url(./components/MoviesCard/MoviesCard.css);
+@import url(./components/CardButton/CardButton.css);
+
+/*Настройки блока SavedMovies*/
+@import url(./components/SavedMovies/SavedMovies.css);
+@import url(./components/EmptyBox/EmptyBox.css);
+
+
+/*Настройки блока Navigation*/
+@import url(./components/Navigation/Navigation.css);
+
+/*Настройки блока NotFound*/
+@import url(./components/NotFoundPage/NotFoundPage.css);
+
+/*Настройки уведомления InfoTooltip*/
+@import url(./components/InfoTooltip/InfoTooltip.css);
+
+/*Настройки уведомления InfoTooltip*/
+@import url(./components/PopupWithForm/PopupWithForm.css);
+@import url(./components/EditProfilePopup/EditProfilePopup.css);
+
+
+/*Заготовка
+@import url();
+*/

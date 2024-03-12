@@ -1,0 +1,157 @@
+.sign-up-in{
+    margin: 70px calc((100% - 396px) / 2);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width:1280px) {
+    .sign-up-in{
+        margin-top: calc(232px + (100vw - 768px) * (70 - 232) / (1280 - 768));
+        margin-right: calc(186px + (100vw - 768px) * (442 - 186) / (1280 - 768));
+        margin-bottom: calc(232px + (100vw - 768px) * (70 - 232) / (1280 - 768));
+        margin-left: calc(186px + (100vw - 768px) * (442 - 186) / (1280 - 768));
+    }
+}
+
+@media screen and (max-width:768px) {
+    .sign-up-in{
+        margin-top: calc(56px + (100vw - 320px) * (232 - 56) / (768 - 320));
+        margin-right: calc(30px + (100vw - 320px) * (186 - 30) / (768 - 320));
+        margin-bottom: calc(30px + (100vw - 320px) * (232 - 30) / (768 - 320));
+        margin-left: calc(30px + (100vw - 320px) * (186 - 30) / (768 - 320));
+    }
+}
+
+@media screen and (max-width:750px) {
+    .sign-up-in{
+       align-items: center;
+    }
+}
+
+@media screen and (max-width:320px) {
+    .sign-up-in{
+       margin: 56px 30px 30px 30px;
+    }
+}
+
+.sign-up-in__logo{
+    margin: 0;
+    padding: 0;
+    width: 38px;
+    cursor: pointer;
+    transition-property: opacity;
+    transition-duration: 0.3s;
+}
+
+.sign-up-in__logo:hover{
+    opacity: 0.5;
+}
+
+@media screen and (max-width:750px) {
+    .sign-up-in__logo{
+        text-align: center;
+    }
+}
+
+.sign-up-in__greeting{
+    margin: 40px 0 40px 0;
+    padding: 0;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29.05px;
+}
+
+
+@media screen and (max-width:768px) {
+    .sign-up-in__greeting{
+        font-weight: 400;
+    }
+}
+
+@media screen and (max-width:750px) {
+    .sign-up-in__greeting{
+        margin: 50px 0 80px 0;
+        margin-bottom: 80px;
+        text-align: center;
+    }
+}
+
+.sign-up-in__bottom{
+    margin: 16px 0 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width:768px) {
+    .sign-up-in__bottom{
+        margin-top: calc(14px + (100vw - 320px) * (16 - 14) / (768 - 320));
+        font-size: calc(12px + (100vw - 320px) * (14 - 12) / (768 - 320));
+        line-height: calc(14.52px + (100vw - 320px) * (16.94 - 14.52) / (768 - 320));
+    }
+}
+
+@media screen and (max-width:320px) {
+    .sign-up-in__bottom{
+        margin-top: 14px;
+        font-size: 12px;
+        line-height: 14.52px;
+    }
+}
+
+.sign-up-in__question{
+    margin: 0;
+    padding: 0;
+    color: rgba(160, 160, 160, 1);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.94px;
+    text-align: center;
+}
+
+@media screen and (max-width:768px) {
+    .sign-up-in__question{
+        font-size: calc(12px + (100vw - 320px) * (14 - 12) / (768 - 320));
+        line-height: calc(14.52px + (100vw - 320px) * (16.94 - 14.52) / (768 - 320));
+    }
+}
+
+@media screen and (max-width:320px) {
+    .sign-up-in__question{
+        font-size: 12px;
+        line-height: 14.52px;
+    }
+}
+
+.sign-up-in__link{
+    margin: 0 0 0 6px;
+    color: rgba(52, 86, 243, 1);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.94px;
+    text-align: center;
+    transition-property: opacity;
+    transition-duration: 0.3s;
+}
+
+.sign-up-in__link:hover{
+    opacity: 0.5;
+}
+
+@media screen and (max-width:768px) {
+    .sign-up-in__link{
+        font-size: calc(12px + (100vw - 320px) * (14 - 12) / (768 - 320));
+        line-height: calc(14.52px + (100vw - 320px) * (16.94 - 14.52) / (768 - 320));
+    }
+}
+
+@media screen and (max-width:320px) {
+    .sign-up-in__link{
+        font-size: 12px;
+        line-height: 14.52px;
+    }
+}
