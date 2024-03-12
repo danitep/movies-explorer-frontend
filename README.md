@@ -14,4 +14,4 @@ Frontend https://danitepdiplomfront.nomoredomainswork.ru/
 
 Backend https://api.danitepdiplomfront.nomoredomainswork.ru/
 
-Ссылка на pull request level-3: https://github.com/danitep/movies-explorer-frontend/pull/2
+Ссылка на pull request level-3: https://github.com/danitep/movies-explorer-frontend/pull/1
