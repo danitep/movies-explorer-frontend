@@ -33,7 +33,10 @@ export default function Login(props){
 
   function handleSubmit(e){
     e.preventDefault();
+    const SubmitButton = document.querySelector('.login__button');
+    SubmitButton.setAttribute("disabled", true);
     props.onSubmit(emailRef.current.value, passwordRef.current.value)
+    SubmitButton.setAttribute("disabled", true);
   } 
 
   React.useEffect(() => {

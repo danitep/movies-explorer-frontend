@@ -29,6 +29,7 @@ export default function SavedMovies(props){
           onSearchSubmit={handleSubmit}
           keywordAddress={'savedMoviesKeyword'}
           isShortAddress={'isShortSavedMovie'}
+          onSwitchClick={props.onSwitchClick}
         />
         <MoviesCardList
           cardsForLoading={props.cards}

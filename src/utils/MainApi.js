@@ -72,7 +72,7 @@ class MainApi {
       return Promise.all([this.getUserInfo(), this.getInitialCards()]);
     }
   */
-    redactProfile(name, JWT){
+    redactProfile(name, email, JWT){
       return fetch(`${this._baseUrl}/users/me`, {
         method: 'PATCH',
         headers: {
@@ -80,7 +80,8 @@ class MainApi {
           "Authorization" : `Bearer ${JWT}`
         },
         body: JSON.stringify({
-          name
+          name,
+          email,
         })
       })
       .then(res => {

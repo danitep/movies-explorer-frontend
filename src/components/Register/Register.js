@@ -36,9 +36,11 @@ export default function Register(props){
 
   function handleRegisterSubmit(e){
     e.preventDefault();
+    const SubmitButton = document.querySelector('.register__button');
+    SubmitButton.setAttribute("disabled", true);
     props.onSubmit(nameRef.current.value, emailRef.current.value, passwordRef.current.value);
+    SubmitButton.removeAttribute("disabled", true);
     Validation.resetForm();
-    /*Доделать отправку*/
   }
 
   return(

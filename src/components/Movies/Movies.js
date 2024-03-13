@@ -53,7 +53,7 @@ export default function Movies(props){
           }, 500);
         }
       }
-      window.addEventListener("resize", resizeController, false);
+      window.addEventListener("resize", resizeController);
       window.removeEventListener("resize", handleScreenResize);
     }, [getCurrentScreenWidth]);
     return screenWidth;

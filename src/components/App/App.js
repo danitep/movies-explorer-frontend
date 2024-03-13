@@ -23,7 +23,9 @@ function App() {
   const [currentUser, setCurrentUser] = React.useState({});
   const [loggedIn, setLoggedIn] = React.useState(JSON.parse(localStorage.getItem('loggedIn')));
   const [cards, setCards] = React.useState([]);
+  const [cardsForLoading, setCardsForLoading] = React.useState([]);
   const [savedCards, setSavedCards] = React.useState([]);
+  const [savedCardsForLoading, setSavedCardsForLoading] = React.useState([]);
 
   //Для хранения токена
   const [JWT, setJWT] = React.useState('');
@@ -40,20 +42,26 @@ function App() {
   React.useEffect(() => {
     //cards
     const cardsFromStorage = localStorage.getItem('cards');
-    if(cardsFromStorage===null){
-      setCards([]);
-    }
-    else{
+    const cardsForLoadingFromStorage = localStorage.getItem('cardsForLoading');
+    cardsFromStorage===null?
+      setCards([])
+      :
       setCards(JSON.parse(cardsFromStorage));
-    }
+    cardsForLoadingFromStorage===null?
+      setCardsForLoading([])
+      :
+      setCardsForLoading(JSON.parse(cardsForLoadingFromStorage));
     //savedCards
     const savedCardsFromStorage = localStorage.getItem('savedCards');
-    if(savedCardsFromStorage===null){
-      setSavedCards([]);
-    }
-    else{
+    const savedCardsForLoadingFromStorage = localStorage.getItem('savedCardsForLoading');
+    savedCardsFromStorage===null?
+      setSavedCards([])
+      :
       setSavedCards(JSON.parse(savedCardsFromStorage));
-    }
+    savedCardsForLoadingFromStorage===null?
+      setSavedCardsForLoading([])
+      :
+      setSavedCardsForLoading(JSON.parse(savedCardsForLoadingFromStorage));
     //CurrentUser
     const currentUserFromStorage = localStorage.getItem('currentUser');
     if(currentUserFromStorage===null){
@@ -70,7 +78,7 @@ function App() {
     else{
       setJWT(JWTFromStorage);
     }
-  }, [loggedIn]); 
+  }, [loggedIn, window.location.pathname]); 
 
 
   //Для перенаправления на другие страницы
@@ -88,7 +96,9 @@ function App() {
     localStorage.removeItem('loggedIn');
     localStorage.removeItem('token');
     localStorage.removeItem('cards');
+    localStorage.removeItem('cardsForLoading');
     localStorage.removeItem('savedCards');
+    localStorage.removeItem('savedCardsForLoading');
     localStorage.removeItem('currentUser');
     localStorage.removeItem('keyword');
     localStorage.removeItem('isShortMovie');
@@ -141,8 +151,8 @@ function App() {
   }
 
   //Для обновления профиля
-  function handleUserUpdate(name){
-    mainApi.redactProfile(name, JWT)
+  function handleUserUpdate(name, email){
+    mainApi.redactProfile(name, email, JWT)
     .then((data)=>{
       setCurrentUser(data)
       closeAllPopups();
@@ -151,8 +161,14 @@ function App() {
     })
     .catch((err) => {
       closeAllPopups();
-      setInfoTooltipCorrect(false)
-      handleInfoTooltip(pleaseWaitErrMessage);
+      if(err.includes('409')){
+        setInfoTooltipCorrect(false)
+        handleInfoTooltip('Конфликт почты, другой пользователь указал такую же почту, пожалуйста, напишите другую')
+      }
+      else{
+        setInfoTooltipCorrect(false)
+        handleInfoTooltip(pleaseWaitErrMessage);
+      }
     })
   }
 
@@ -201,46 +217,73 @@ function App() {
   }
 
 
-  function handleExtraFilter(){
-    if(window.location.pathname === '/movies'){
-      setCards((state)=>{
-        let nextState = state.filter((c)=>{
-          return c.duration <= 40;
-        });
-        localStorage.setItem('isShortMovie', JSON.stringify(true));
-        localStorage.setItem('cards', JSON.stringify(nextState));
-        return(nextState);
-      })
-      
-    } 
-    else{
-      setSavedCards((state)=>{
-        let nextState = state.filter((c)=>{
-          return c.duration <= 40;
-        });
-        localStorage.setItem('savedCards', JSON.stringify(nextState));
-        localStorage.setItem('isShortSavedMovie', JSON.stringify(true));
-        return(nextState);
-      })
+  function handleExtraFilter(keyword, isShortMovieEnabled){
+    if(isShortMovieEnabled){//Выбраны короткометражки
+      if(window.location.pathname === '/movies'){//Раздел "Фильмы"
+        setCardsForLoading((state)=>{
+          let nextState = state.filter((c)=>{
+            return c.duration <= 40;
+          });
+          localStorage.setItem('isShortMovie', JSON.stringify(true));
+          localStorage.setItem('cardsForLoading', JSON.stringify(nextState));
+          return(nextState);
+        })
+        
+      } 
+      else{//Раздел "Сохраненные фильмы"
+        setSavedCardsForLoading((state)=>{
+          let nextState = state.filter((c)=>{
+            return c.duration <= 40;
+          });
+          localStorage.setItem('savedCardsForLoading', JSON.stringify(savedCards));
+          localStorage.setItem('isShortSavedMovie', JSON.stringify(false));
+          return(nextState);
+        }) 
+      }
+    }
+    else{//Выбраны все фильмы
+      if(window.location.pathname === '/movies'){//Раздел "Фильмы"
+        const nextState = filterMovies(cards, keyword, isShortMovieEnabled);
+        setCardsForLoading(nextState);
+      } 
+      else{//Раздел "Сохраненные фильмы"
+        const nextState = filterMovies(savedCards, keyword, isShortMovieEnabled);
+        setSavedCardsForLoading(nextState);
+      }
       
     }
+    
   }
  
   //Для отправки запроса по поиску фильма
   function handleSearchSubmit(keyword, isShortMovie){
     if(keyword.length>=1){
-      return moviesApi.getInitialCards()
-      .then((resCards)=>{
-        const moviesCards = filterMovies(resCards, keyword, isShortMovie);
-        setCards(moviesCards);
-        localStorage.setItem('cards', JSON.stringify(moviesCards));
+      if(cards.length===0){//Первый поиск фильмов
+        return moviesApi.getInitialCards()
+        .then((resCards)=>{
+          setCards(resCards);
+          const moviesCards = filterMovies(resCards, keyword, isShortMovie);
+          setCardsForLoading(moviesCards);
+          localStorage.setItem('cards', JSON.stringify(resCards));
+          localStorage.setItem('cardsForLoading', JSON.stringify(moviesCards));
+          localStorage.setItem('keyword', JSON.stringify(keyword));
+          localStorage.setItem('isShortMovie', JSON.stringify(isShortMovie));
+        })
+        .catch((err) => {
+          setInfoTooltipCorrect(false)
+          handleInfoTooltip(pleaseWaitErrMessage);
+        })
+      }
+      else{//Повторный поиск фильмов
+        const moviesCards = filterMovies(cards, keyword, isShortMovie);
+        setCardsForLoading(moviesCards);
+        localStorage.setItem('cardsForLoading', JSON.stringify(moviesCards));
         localStorage.setItem('keyword', JSON.stringify(keyword));
         localStorage.setItem('isShortMovie', JSON.stringify(isShortMovie));
-      })
-      .catch((err) => {
-        setInfoTooltipCorrect(false)
-        handleInfoTooltip(pleaseWaitErrMessage);
-      })
+        return new Promise(function (resolve) {
+          resolve('');
+        })
+      }
     }
     else{
       setInfoTooltipCorrect(false)
@@ -255,6 +298,10 @@ function App() {
   function handleSaveCard(card){
     return mainApi.saveFilm(card, JWT)
     .then((card)=>{
+      localStorage.setItem('savedCards',  JSON.stringify([...savedCards, card]));
+      localStorage.setItem('savedCardsForLoading',  JSON.stringify([...savedCards, card]));
+      setSavedCards([...savedCards, card])
+      setSavedCardsForLoading([...savedCards, card])
       return true;
     })
     .catch((err)=>{
@@ -268,15 +315,22 @@ function App() {
   function handleCardDelete(card){
     return mainApi.deleteCard(window.location.pathname === '/movies'? card.id : card.movieId, JWT)
     .then((card)=>{
-      if(window.location.pathname === '/saved-movies'){
+      let allSavedCards = savedCards;
         setSavedCards((state)=>{
           let nextState = state.filter((c)=>{
             return card.movieId !== c.movieId;
           });
+          allSavedCards = nextState
           localStorage.setItem('savedCards', JSON.stringify(nextState));
           return(nextState);
         })
-      }
+        setSavedCardsForLoading((state)=>{
+          let nextState = state.filter((c)=>{
+            return card.movieId !== c.movieId;
+          });
+          localStorage.setItem('savedCardsForLoading', JSON.stringify(allSavedCards));
+          return(nextState);
+        })
       return true;
     })
     .catch((err)=>{
@@ -289,28 +343,45 @@ function App() {
   //для загрузки сохранённых фильмов 
   function handleSavedFilmsSubmit(keyword, isShortMovie){
     if(keyword.length>=1){
-      return mainApi.getInitialSavedMovies(JWT)
-      .then((resCards)=>{
-        const savedMoviesCards = filterMovies(resCards, keyword, isShortMovie);
-        setSavedCards(savedMoviesCards);
-        localStorage.setItem('savedCards', JSON.stringify(savedMoviesCards));
-        localStorage.setItem('savedMoviesKeyword', JSON.stringify(keyword));
-        localStorage.setItem('isShortSavedMovie', JSON.stringify(isShortMovie));
-      })
-      .catch((err) => {
-        if(!err.includes('404')){ //Т.к. на 404 будет появляться надпись "Ничего не найдено"
-          setInfoTooltipCorrect(false)
-          handleInfoTooltip(`Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз`)
-        }
-        localStorage.setItem('savedCards', JSON.stringify([]));
-        setSavedCards([]);
-        
-      })
+      if(savedCards.length===0){//Первый поиск фильмов
+        return mainApi.getInitialSavedMovies(JWT)
+        .then((resCards)=>{
+          setSavedCards(resCards);
+          const savedMoviesCards = filterMovies(resCards, keyword, isShortMovie);
+          setSavedCardsForLoading(savedMoviesCards);
+          localStorage.setItem('savedCards', JSON.stringify(resCards));
+          localStorage.setItem('savedCardsForLoading', JSON.stringify(resCards));
+          localStorage.setItem('savedMoviesKeyword', JSON.stringify(''));
+          localStorage.setItem('isShortSavedMovie', JSON.stringify(false));
+        })
+        .catch((err) => {
+          if(!err.includes('404')){ //Т.к. на 404 будет появляться надпись "Ничего не найдено"
+            setInfoTooltipCorrect(false)
+            handleInfoTooltip(pleaseWaitErrMessage)
+          }
+          localStorage.setItem('savedCards', JSON.stringify([]));
+          localStorage.setItem('savedCardsForLoading', JSON.stringify([]));
+          setSavedCards([]);
+          setCardsForLoading([]);
+        })
+      }
+      else{//Повторный поиск фильмов
+        const moviesCards = filterMovies(savedCards, keyword, isShortMovie);
+        setSavedCardsForLoading(moviesCards);
+        localStorage.setItem('savedCardsForLoading', JSON.stringify(savedCards));
+        localStorage.setItem('savedMoviesKeyword', JSON.stringify(''));
+        localStorage.setItem('isShortSavedMovie', JSON.stringify(false));
+        return new Promise(function (resolve) {
+          resolve('');
+        })
+      }
     }
     else{
       setInfoTooltipCorrect(false)
       handleInfoTooltip('Нужно ввести ключевое слово')
-      return new Promise();
+      return new Promise(function (resolve) {
+        resolve('');
+      });
     }
   }
 
@@ -332,7 +403,7 @@ function App() {
         <>
           <Movies
             isloggedIn={loggedIn}
-            cards={cards}
+            cards={cardsForLoading}
             onLogoClick={handleLogoClick}
             onSearchSubmit={handleSearchSubmit}
             onSave={handleSaveCard}
@@ -347,10 +418,11 @@ function App() {
         loggedIn?
         <SavedMovies
         isloggedIn={loggedIn}
-        cards={savedCards}
+        cards={savedCardsForLoading}
         onCardDelete={handleCardDelete}
         onLogoClick={handleLogoClick}
         onSearchSubmit={handleSavedFilmsSubmit}
+        onSwitchClick={handleExtraFilter}
         />
         :
         <Navigate to="/" replace/>
@@ -368,16 +440,22 @@ function App() {
         <Navigate to="/" replace/>
       }/>
       <Route path="/sign-in" element={
+        !loggedIn?
         <Login 
           onSubmit={handleUserSignIn}
           onLogoClick={handleLogoClick}
         />
+        :
+        <Navigate to="/movies" replace/>
       }/>
       <Route path="/sign-up" element={
+        !loggedIn?
         <Register
         onSubmit={handleUserSignUp}
         onLogoClick={handleLogoClick}
         />
+        :
+        <Navigate to="/movies" replace/>
       }/>
       <Route path="/:any" element={<NotFoundPage/>}/>
     </Routes>

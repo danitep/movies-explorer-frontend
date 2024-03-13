@@ -18,12 +18,14 @@ export default function SearchForm(props){
 
   //Функция для нажатия на переключатель короткометражек
   function handleShortFilmsClick(){
-    if(shortFilmsEnabled)
+    if(shortFilmsEnabled){
       setshortFilmsEnabled(false);
+      props.onSwitchClick(searchRef.current.value, false);
+  }
     else{
       //Доп.фильтр карточек
       setshortFilmsEnabled(true);
-      props.onSwitchClick();
+      props.onSwitchClick(searchRef.current.value, true);
     }
   }
 
