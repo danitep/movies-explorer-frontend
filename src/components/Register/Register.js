@@ -98,7 +98,7 @@ export default function Register(props){
           placeholder="" 
           required 
           minLength="8"/>
-          <span className={`register__error ${Validation.errors.user__name !== '' ? 'register__error_enabled' : ''}`}
+          <span className={`register__error ${Validation.errors.password !== '' ? 'register__error_enabled' : ''}`}
           id="profile__description__field-error">
             {Validation.errors.password}
           </span>
