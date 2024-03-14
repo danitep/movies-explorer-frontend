@@ -1,0 +1,210 @@
+/*Свойства в дополнение к свойствам из header*/
+
+/*Cвойства для контейнеров ссылок*/
+.header__link-container_logged{
+    justify-content: space-between;
+}
+
+@media screen and (max-width:1000px) {
+    .header__link-container_logged{
+        display: none;
+    }
+}
+
+.header__link-subcontainer{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+/*Свойства ссылок*/
+.header__link#movies{
+    margin: 0 16px 0 0;
+}
+
+/*Cвойства для кнопки открытия аккаунта*/
+.header__account-button{
+    margin: 0;
+    padding: 0;
+    width: 100px;
+    height: 32px;
+    border: 2px solid rgba(170, 170, 170, 1);
+    background: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    cursor: pointer;
+}
+
+/*Свойства иконки аккаунта*/
+.header__icon{
+    margin: 0 7px 0 0;
+}
+
+/*Свойства кнопки вызова меню*/
+.navigation__menu-button{
+    display: none;
+    border: none;
+    width: 44px;
+    height: 44px;
+    background: url(../../images/menu__icon.svg) center no-repeat;
+}
+
+@media screen and (max-width:1000px) {
+    .navigation__menu-button{
+        display: flex;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .navigation__menu-button{
+        width: calc(39px + (100vw - 320px) * (44 - 39) / (768 - 320));
+    }
+}
+
+@media screen and (max-width:320px) {
+    .navigation__menu-button{
+        width: 39px;
+    }
+}
+
+/*Свойства "тени" от меню*/
+.navigation__slider{
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+    display: none;
+}
+
+@media screen and (max-width:1000px) {
+    .navigation__slider{
+        display: block;
+    }
+}
+
+.navigation__slider_disabled{
+    display: none;
+}
+
+/*Свойства вызванного меню навигации*/
+.navigation__list{
+    position: fixed;
+    margin: 0;
+    padding: 0 0 90px 0;
+    top: 0;
+    right: 0;
+    width: 520px;
+    height: 100%;
+    background: rgba(250, 250, 250, 1);
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media screen and (max-width:520px) {
+    .navigation__list{
+        width: 100vw;
+    }
+}
+
+
+.navigation__close-button{
+    margin: 27.44px 22.44px 0 0;
+    padding: 0;
+    background: url(../../images/close__button.svg) center no-repeat;
+    width: calc(22px * 1.414);
+    height: calc(22px * 1.414);
+    align-self: flex-end;
+    border: none;
+    cursor: pointer;
+    transition-property: opacity;
+    transition-duration: 0.3s;
+}
+
+.navigation__close-button:hover{
+    opacity: 0.5;
+}
+
+@media screen and (max-width:520px) {
+    .navigation__close-button{
+        margin-top: calc(13.44px + (100vw - 320px) * (27.44 - 13.44) / (520 - 320));
+        margin-right: calc(13.44px + (100vw - 320px) * (22.44 - 13.44) / (520 - 320));
+    }
+}
+
+@media screen and (max-width:320px) {
+    .navigation__close-button{
+        margin-top: 13.44px;
+        margin-right: 13.44px;
+    }
+}
+
+.navigation__container{
+    margin: 81.44px 0 90px 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media screen and (max-width:520px) {
+    .navigation__container{
+        margin-top: calc(94.44px + (100vw - 320px) * (81.44 - 94.44) / (520 - 320));
+        margin-bottom: calc(46px + (100vw - 320px) * (90 - 46) / (520 - 320));
+    }
+}
+
+.navigation__subcontainer{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navigation__link{
+    margin: 20px 0 0 0;
+    padding: 4px 0;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21.78px;
+    text-align: center;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 1);
+    transition-property: opacity;
+    transition-duration: 0.3s;
+}
+
+.navigation__link:hover{
+    opacity: 0.5;
+}
+
+.navigation__link_underlined{
+    border-bottom: solid 2px rgba(0, 0, 0, 1);
+}
+
+@media screen and (max-width:520px) {
+    .navigation__link{
+        margin-top: calc(10px + (100vw - 320px) * (20 - 10) / (520 - 320));
+        padding-bottom: calc(9px + (100vw - 320px) * (4 - 9) / (520 - 320));
+    }
+}
+
+.navigation__link#sign-in{
+    margin: 0;
+    padding: 0;
+}

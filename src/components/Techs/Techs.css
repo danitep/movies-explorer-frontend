@@ -1,0 +1,196 @@
+/*Общие совйства*/
+.techs{
+    margin: 0;
+    padding-top: 64px;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-bottom: 0;
+    background-color: rgba(245, 245, 245, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width:1280px) {
+    .techs{
+
+        padding-left: calc(50px + (100vw - 768px) * (70 - 50) / (1280 - 768));
+        padding-right: calc(50px + (100vw - 768px) * (70 - 50) / (1280 - 768));
+    }
+}
+
+@media screen and (max-width:768px) {
+    .techs{
+        padding-top: calc(59px + (100vw - 320px) * (64 - 60) / (768 - 320));
+        padding-left: calc(18px + (100vw - 320px) * (50 - 18) / (768 - 320));
+        padding-right: calc(18px + (100vw - 320px) * (50 - 18) / (768 - 320));
+    }
+}
+
+@media screen and (max-width:320px) {
+    .techs{
+        padding-top: 60px;
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+}
+
+/*Свойства заголовка*/
+.techs__title{
+    margin: 90px auto 0 auto;
+    display: flex;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 58px;
+    letter-spacing: -2px;
+    text-align: center;
+}
+
+@media screen and (max-width:1280px) {
+    .techs__title{
+        margin-top: calc(80px + (100vw - 768px) * (90 - 80) / (1280 - 768));
+    }
+}
+
+@media screen and (max-width:768px) {
+    .techs__title{
+        margin-top: calc(60px + (100vw - 320px) * (80 - 60) / (768 - 320));
+        letter-spacing: calc(-1px + (100vw - 320px) * (-2 + 1) / (768 - 320));
+    }
+}
+
+@media screen and (max-width:750px) {
+    .techs__title{
+        font-size: 30px;
+        line-height: 36.31px;
+    }
+}
+
+@media screen and (max-width:320px) {
+    .techs__title{
+        margin-top: 60px;
+    }
+}
+
+/*Свойства подзаголовка*/
+.techs__subtitle{
+    margin: 26px auto 0 auto;
+    padding: 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -1px;
+    text-align: center;
+    max-width: 460px;
+}
+
+@media screen and (max-width:1280px) {
+    .techs__subtitle{
+        margin-top: calc(22px + (100vw - 768px) * (26 - 22) / (1280 - 768));
+    }
+}
+
+@media screen and (max-width:768px) {
+    .techs__subtitle{
+        margin-top: calc(24px + (100vw - 320px) * (22 - 24) / (768 - 320));
+        letter-spacing: -3px;
+    }
+}
+
+@media screen and (max-width:750px) {
+    .techs__subtitle{
+        width: 260px;
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: -1px;
+    }
+}
+
+@media screen and (max-width:320px) {
+    .techs__subtitle{
+        margin-top: 24px;
+    }
+}
+
+/*Свойства сетки*/
+.techs__grid{
+    margin: 100px 225px 100px 225px;
+    padding: 0;
+    display: grid;
+    box-sizing: border-box;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    justify-items: center;
+}
+
+@media screen and (max-width:1280px) {
+    .techs__grid{
+        margin-left: calc(10px + (100vw - 768px) * (225 - 10) / (1280 - 768));
+        margin-right: calc(10px + (100vw - 768px) * (225 - 10) / (1280 - 768));
+        margin-bottom: calc(90px + (100vw - 768px) * (100 - 90) / (1280 - 768));
+    }
+}
+
+@media screen and (max-width:768px) {
+    .techs__grid{
+        margin-top: calc(50px + (100vw - 320px) * (100 - 50) / (768 - 320));
+        margin-left: calc(53px + (100vw - 320px) * (10 - 53) / (768 - 320));
+        margin-right: calc(53px + (100vw - 320px) * (10 - 53) / (768 - 320));
+        margin-bottom: calc(70px + (100vw - 320px) * (90 - 70) / (768 - 320));
+    }
+}
+
+@media screen and (max-width:320px) {
+    .techs__grid{
+        margin-top: 50px;
+        margin-left: 53px;
+        margin-right: 53px;
+        margin-bottom: 70px;
+    }
+}
+
+/*Свойства элесентов сетки*/
+.techs__element{
+    margin: 0;
+    padding: 0;
+    width: 90px;
+    border-radius: 10px;
+    list-style-type: none;
+    background: rgba(232, 232, 232, 1);
+}
+
+@media screen and (max-width:1280px) {
+    .techs__element{
+        width: calc(84px + (100vw - 768px) * (90 - 84) / (1280 - 768));
+    }
+}
+
+@media screen and (max-width:768px) {
+    .techs__element{
+        width: 84px;
+    }
+}
+
+/*Свойства текста элемента*/
+.techs__text{
+    margin: 21px auto;
+    padding: 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16.94px;
+    letter-spacing: -1px;
+    text-align: center;
+}
+
+@media screen and (max-width:1280px) {
+    .techs__text{
+        font-size: calc(12px + (100vw - 768px) * (14 - 12) / (1280 - 768));
+        line-height: calc(14.52px + (100vw - 768px) * (16.94 - 14.52) / (1280 - 768));
+    }
+}
+
+@media screen and (max-width:768px) {
+    .techs__text{
+        font-size: 12px;
+        line-height: 14.52px;
+    }
+}

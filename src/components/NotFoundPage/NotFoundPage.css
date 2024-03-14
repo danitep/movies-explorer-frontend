@@ -1,0 +1,99 @@
+/*Общие свойства*/
+.not-found-page{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*Свойства числа*/
+.not-found-page__number{
+    margin: 246px 0 5px 0;
+    width: 100%;
+    font-weight: 400;
+    font-size: 140px;
+    line-height: 169.43px;
+    text-align: center;
+}
+
+@media screen and (max-width:1280px) {
+    .not-found-page__number{
+        margin-top: calc(408px + (100vw - 768px) * (246 - 408) / (1280 - 768));
+    }
+}
+
+@media screen and (max-width:768px) {
+    .not-found-page__number{
+        margin-top: calc(329px + (100vw - 320px) * (408 - 329) / (768 - 320));
+        font-size: calc(80px + (100vw - 320px) * (140 - 80) / (768 - 320));
+        line-height: calc(96.82px + (100vw - 320px) * (169.43 - 96.82) / (768 - 320));
+        margin-bottom: calc(10px + (100vw - 320px) * (5 - 10) / (768 - 320));
+    }
+}
+
+@media screen and (max-width:320px) {
+    .not-found-page__number{
+        margin-top: 329px;
+        font-size: 80px;
+        line-height: 96.82px;
+        margin-bottom: 10px;
+    }
+}
+
+/*Свойства текста*/
+.not-found-page__text{
+    margin: 0 0 184px 0;
+    padding: 0;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19.36px;
+}
+@media screen and (max-width:768px) {
+    .not-found-page__text{
+        font-size: calc(12px + (100vw - 320px) * (16 - 12) / (768 - 320));
+        line-height: calc(14.52px + (100vw - 320px) * (19.36 - 14.52) / (768 - 320));
+        margin-bottom: calc(284px + (100vw - 320px) * (184 - 284) / (768 - 320));
+    }
+}
+
+@media screen and (max-width:320px) {
+    .not-found-page__text{
+        font-size: 12px;
+        line-height: 14.52px;
+        margin-bottom: 284px;
+    }
+}
+
+/*Свойства ссылки*/
+.not-found-page__link{
+    margin: 0 0 60px 0;
+    padding: 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16.94px;
+    color: rgba(52, 86, 243, 1);
+    text-decoration: none;
+}
+
+@media screen and (max-width:1280px) {
+    .not-found-page__link{
+        margin-bottom: calc(222px + (100vw - 768px) * (60 - 222) / (1280 - 768));
+    }
+}
+
+@media screen and (max-width:768px) {
+    .not-found-page__link{
+        font-size: calc(12px + (100vw - 320px) * (14 - 12) / (768 - 320));
+        line-height: calc(14.52px + (100vw - 320px) * (16.94 - 14.52) / (768 - 320));
+        margin-bottom: calc(30px + (100vw - 320px) * (222 - 30) / (768 - 320));
+    }
+}
+
+@media screen and (max-width:320px) {
+    .not-found-page__link{
+        font-size: 12px;
+        line-height: 14.52px;
+        margin-bottom: 30px;
+    }
+}

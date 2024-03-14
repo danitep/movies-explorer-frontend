@@ -1,0 +1,72 @@
+/*Общие свойства компонента Movies*/
+.movies{
+    margin: 0;
+    padding: 0;
+    background-color: rgba(250, 250, 250, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}  
+
+/*Свойства кнопки добавления карточек*/
+.movies__add-button{
+    margin-top: 50px;
+    margin-right: calc((100% - 320px) / 2);
+    margin-bottom: 80px;
+    margin-left: calc((100% - 320px) / 2);
+    padding: 0;
+    width: 320px;
+    border: none;
+    border-radius: 6px;
+    background-color: rgba(244, 244, 244, 1);
+    cursor: pointer;
+    transition-property: opacity;
+    transition-duration: 0.3s;
+}
+
+.movies__add-button:hover{
+    opacity: 0.5;
+}
+
+@media screen and (max-width:768px) {
+    .movies__add-button{
+        margin-bottom: calc(93px + (100vw - 320px) * (80 - 93) / (768 - 320));
+        margin-right: calc(40px + (100vw - 320px) * (224 - 40) / (768 - 320));
+        margin-left: calc(40px + (100vw - 320px) * (224 - 40) / (768 - 320));
+        width: calc(240px + (100vw - 320px) * (320 - 240) / (768 - 320));
+    }
+}
+
+@media screen and (max-width:320px) {
+    .movies__add-button{
+        margin-bottom: 93px;
+        margin-right: 40px;
+        margin-left: 40px;
+        width: 240px;
+    }
+}
+
+/*Свойства текста кнопки*/
+.movies__text{
+    margin: 11px 60px 9px 60px;
+    padding: 0;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14.52px;
+    text-align: center;
+}
+
+@media screen and (max-width:768px) {
+    .movies__text{
+        font-weight: 400;
+        margin-right: calc(108px + (100vw - 320px) * (60 - 108) / (768 - 320));
+        margin-left: calc(108px + (100vw - 320px) * (60 - 108) / (768 - 320));
+    }
+}
+
+@media screen and (max-width:320px) {
+    .movies__text{
+        margin-right: 108px;
+        margin-left: 108px;
+    }
+}

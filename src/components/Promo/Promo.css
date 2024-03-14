@@ -1,0 +1,86 @@
+/*Общие свойства*/
+.promo{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background-image: url('../../images/Project_logo.svg');
+    background-position-x: center;
+    background-position-y: 82px;
+    background-repeat: no-repeat;
+}
+
+@media screen and (max-width:1280px) {
+    .promo{
+        background-position-x: center;
+        background-position-y: calc(224px + (100vw - 768px) * (82 - 224) / (1280 - 768));
+    }
+}
+
+@media screen and (max-width:768px) {
+    .promo{
+        background-position-x: center;
+        background-position-y: calc(142px + (100vw - 320px) * (224 - 142) / (768 - 320));
+    }
+}
+
+@media screen and (max-width:750px) {
+    .promo{
+        background-size: 248px;
+    }
+}
+
+@media screen and (max-width:320px) {
+    .promo{
+        background-position-x: 36px;
+        background-position-y: 142px;
+    }
+}
+
+/*Свойства заголовка*/
+.promo__heading{
+    margin-top: 184px;
+    margin-right: calc((100% - 730px) / 2);
+    margin-bottom: 224px;
+    margin-left: calc((100% - 730px) / 2);
+    padding: 0;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 58px;
+    letter-spacing: -2px;
+    text-align: center;
+}
+
+@media screen and (max-width:1280px) {
+    .promo__heading{
+        margin-top: calc(326px + (100vw - 768px) * (184 - 326) / (1280 - 768));
+        margin-right: calc(19px + (100vw - 768px) * (275 - 19) / (1280 - 768));
+        margin-bottom: calc(342px + (100vw - 768px) * (224 - 342) / (1280 - 768));
+        margin-left: calc(19px + (100vw - 768px) * (275 - 19) / (1280 - 768));
+    }
+}
+
+@media screen and (max-width:768px) {
+    .promo__heading{
+        margin-top: calc(207px + (100vw - 320px) * (326 - 207) / (768 - 320));
+        margin-right: calc(10px + (100vw - 320px) * (19 - 10) / (768 - 320));
+        margin-bottom: calc(246px + (100vw - 320px) * (342 - 246) / (768 - 320));
+        margin-left: calc(10px + (100vw - 320px) * (19 - 10) / (768 - 320));
+        letter-spacing: calc(-1px + (100vw - 320px) * (-2 + 1) / (768 - 320));
+    }
+}
+
+@media screen and (max-width:750px) {
+    .promo__heading{
+        font-weight: 400;
+        font-size: 31px;
+        line-height: 39px;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width:320px) {
+    .promo__heading{
+        margin:207px 10px 246px 10px;
+        letter-spacing: -1px;
+    }
+}

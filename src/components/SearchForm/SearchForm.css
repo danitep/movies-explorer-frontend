@@ -1,0 +1,165 @@
+/*Общие свойтсва поисковой строки*/
+.search-form{
+    margin-top: 70px;
+    margin-right: calc((100vw - 1140px) / 2);
+    margin-bottom: 0;
+    margin-left: calc((100vw - 1140px) / 2);
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width:1280px) {
+    .search-form{
+        margin-top: calc(80px + (100vw - 768px) * (70 - 80) / (1280 - 768));
+        margin-left: calc(30px + (100vw - 768px) * (70 - 30) / (1280 - 768));
+        margin-right: calc(30px + (100vw - 768px) * (70 - 30) / (1280 - 768));
+    }
+}
+
+@media screen and (max-width:768px) {
+    .search-form{
+        margin-top: 80px;
+        margin-left: calc(10px + (100vw - 320px) * (30 - 10) / (768 - 320));
+        margin-right: calc(10px + (100vw - 320px) * (30 - 10) / (768 - 320));
+    }
+}
+
+@media screen and (max-width:320px) {
+    .search-form{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+/*Свойства контейнера для поисковой строки*/
+.search-form__container{
+    margin: 0 0 69px 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 9px;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.08);
+}
+
+@media screen and (max-width:1280px) {
+    .search-form__container{
+        margin-bottom: calc(109px + (100vw - 768px) * (69 - 109) / (1280 - 768));
+    }
+}
+
+@media screen and (max-width:768px) {
+    .search-form__container{
+        margin-bottom: calc(46px + (100vw - 320px) * (109 - 46) / (768 - 320));
+    }
+}
+
+@media screen and (max-width:750px) {
+    .search-form__container{
+        justify-content: space-between;
+    }
+}
+
+@media screen and (max-width:320px) {
+    .search-form__container{
+        margin-bottom: 46px;
+    }
+}
+
+/*Свойства иконки поиска в начале*/
+.search-form__icon{
+    margin: 19px 0 19px 19px;
+    padding: 0;
+}
+
+@media screen and (max-width:750px) {
+    .search-form__icon{
+        display: none;
+    }
+}
+
+/*Свойства поисковой строки как поля ввода(input)*/
+.search-form__input{
+    margin: 0 0 0 10px;
+    padding: 0;
+    border: none;
+    width: 751px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0px;
+    text-align: left;
+    transition-property: background-color;
+    transition-duration: 0.3s;
+}
+
+.search-form__input:hover{
+    background-color: rgb(240, 240, 240);
+}
+
+@media screen and (max-width:1280px) {
+    .search-form__input{
+        width: calc(338px + (100vw - 768px) * (751 - 338) / (1280 - 768));
+    }
+}
+
+@media screen and (max-width:768px) {
+    .search-form__input{
+        width: calc(182px + (100vw - 320px) * (338 - 182) / (768 - 320));
+    }
+}
+
+@media screen and (max-width:750px) {
+    .search-form__input{
+        margin-left: 19px;
+    }
+}
+
+@media screen and (max-width:320px) {
+    .search-form__input{
+        width: 182px;
+    }
+}
+
+.search-form__input:focus-visible{
+    outline: none;
+}
+
+/*Свойства кнопки поиска*/
+.search-form__button{
+    margin: 19px 0 19px 46px;
+    padding: 0;
+    width: 34px;
+    height: 34px;
+    background: rgba(52, 86, 243, 1) no-repeat url(../../images/search__button__icon.svg) center;
+    border-radius: 17px;
+    border: none;
+    cursor: pointer;
+    transition-property: opacity;
+    transition-duration: 0.3s;
+}
+
+.search-form__button:hover{
+    opacity: 0.5;
+}
+
+@media screen and (max-width:750px) {
+    .search-form__button{
+        margin-right: 19px;
+    }
+}
+
+/*Свойства линии после кнопки поиска*/
+.search-form__border{
+    margin: 0 0 0 19px;
+    padding: 0;
+    height: 40px;
+    border-right: 1px solid rgba(203, 203, 203, 1);
+}
+
+@media screen and (max-width:750px) {
+    .search-form__border{
+        display: none;
+    }
+}

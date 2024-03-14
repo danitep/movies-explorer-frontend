@@ -1,0 +1,102 @@
+.popup{
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    visibility: hidden;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: visibility 0.5s, opacity 0.5s linear;
+    z-index: 2;
+}
+
+.popup_opened{
+    visibility: visible;
+    opacity: 1;
+    pointer-events: all;
+}
+
+.popup__container{
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: 430px;
+    background-color: #fff;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Inter', Arial, sans-serif;
+}
+
+@media screen and (max-width:500px) {
+    .popup__container{
+        width: 282px;
+    }
+}
+
+
+.popup__close{
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: url(../../images/close_icon.svg) no-repeat center;
+    background-size: contain;
+    transition: opacity  0.3s linear;
+    cursor: pointer;
+}
+
+.popup__close:hover{
+    opacity: 0.6;
+}
+
+@media screen and (max-width:880px) {
+    .popup__close{
+        top: -36px;
+        right: 0;
+        width: 20px;
+        height: 20px;
+    }
+}
+
+
+.popup__union{
+    margin: 60px 0 0 0;
+    padding: 0;
+    width: 120px;
+    height: 120px;
+    align-self: center;
+}
+
+.popup__union_correct{
+    background-image: url(../../images/Login_ok.svg);
+}
+
+.popup__union_incorrect{
+    background-image: url(../../images/Login_err.svg);
+}
+
+.popup__message{
+    margin: 30px 0 60px 0;
+    padding: 0;
+    align-self: center;
+    color: #000;
+    max-width: 358px;
+    text-align: center;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29.05px;
+}

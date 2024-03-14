@@ -1,0 +1,49 @@
+/*Общие свойства*/
+.portfolio{
+    margin: 100px 0 105px 0;
+}
+
+@media screen and (max-width:1280px) {
+    .portfolio{
+        margin-top: calc(85px + (100vw - 768px) * (100 - 85) / (1280 - 768));
+        margin-bottom: calc(75px + (100vw - 768px) * (105 - 75) / (1280 - 768));
+
+    }
+}
+
+@media screen and (max-width:768px) {
+    .portfolio{
+        margin-top: calc(70px + (100vw - 320px) * (85 - 70) / (768 - 320));
+        margin-bottom: calc(70px + (100vw - 320px) * (75 - 70) / (768 - 320));
+    }
+}
+
+@media screen and (max-width:320px) {
+    .portfolio{
+        margin-top: 70px;
+        margin-bottom: 60px;
+    }
+}
+
+/*Свойства заголовка портфолио*/
+.portfolio__title{
+    margin: 0 0 30px 0;
+    color: rgba(160, 160, 160, 1);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+@media screen and (max-width:768px) {
+    .portfolio__title{
+        margin-bottom: calc(20px + (100vw - 320px) * (30 - 20) / (768 - 320));
+        font-size: calc(14px + (100vw - 320px) * (18 - 14) / (768 - 320));
+    }
+}
+
+@media screen and (max-width:320px) {
+    .portfolio__title{
+        margin-bottom: 20px;
+        font-size: 14px;
+    }
+}

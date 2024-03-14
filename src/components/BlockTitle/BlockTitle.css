@@ -1,0 +1,27 @@
+.block-title{
+    margin: 40px 0 0 0;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 26.63px;
+    letter-spacing: -1px;
+}
+
+@media screen and (max-width:1280px) {
+    .block-title{
+        margin-top: calc(28px + (100vw - 768px) * (40 - 28) / (1280 - 768));
+    }
+}
+
+@media screen and (max-width:768px) {
+    .block-title{
+        margin-top: calc(0px + (100vw - 320px) * (28 - 0) / (768 - 320));
+    }
+}
+@media screen and (max-width:320px) {
+    .block-title{
+        font-size: 18px;
+        line-height: 21.78px;
+        letter-spacing: -1px;
+        margin-top: 0px;
+    }
+}
