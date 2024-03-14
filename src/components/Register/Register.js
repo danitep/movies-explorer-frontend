@@ -82,7 +82,7 @@ export default function Register(props){
           required 
           minLength="2" 
           maxLength="40"/>
-          <span className={`register__error ${Validation.errors.e_mail !== '' ? 'register__error-enabled' : ''}`} 
+          <span className={`register__error ${Validation.errors.e_mail !== '' ? 'register__error_enabled' : ''}`} 
           id="profile__description__field-error">
             {Validation.errors.e_mail}
           </span>
@@ -98,7 +98,7 @@ export default function Register(props){
           placeholder="" 
           required 
           minLength="8"/>
-          <span className={`register__error ${Validation.errors.user__name !== '' ? 'register__error-enabled' : ''}`}
+          <span className={`register__error ${Validation.errors.user__name !== '' ? 'register__error_enabled' : ''}`}
           id="profile__description__field-error">
             {Validation.errors.password}
           </span>

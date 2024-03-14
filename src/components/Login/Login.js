@@ -66,7 +66,7 @@ export default function Login(props){
           required 
           minLength="2" 
           maxLength="40"/>
-          <span className={`login__error ${Validation.errors.e_mail !== '' ? 'login__error-enabled' : ''}`}
+          <span className={`login__error ${Validation.errors.e_mail !== '' ? 'login__error_enabled' : ''}`}
           id="profile__description__field-error">
             {Validation.errors.e_mail}
           </span>
@@ -82,7 +82,7 @@ export default function Login(props){
           placeholder="" 
           required 
           minLength="8"/>
-          <span className={`login__error ${Validation.errors.password !== '' ? 'login__error-enabled' : ''}`}
+          <span className={`login__error ${Validation.errors.password !== '' ? 'login__error_enabled' : ''}`}
           id="profile__description__field-error">
             {Validation.errors.password}
           </span>

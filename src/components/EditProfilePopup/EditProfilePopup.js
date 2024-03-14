@@ -37,7 +37,7 @@ export default function EditProfilePopup(props){
     
     function ToggleButtonState(){
         const SubmitButton = document.querySelector('.popup__button');
-        if (!Validation.isValid || name===currentUser.name || email===currentUser.email){
+        if (!Validation.isValid || (name===currentUser.name && email===currentUser.email)){
           SubmitButton.setAttribute("disabled", true);
         }
         else{
@@ -81,7 +81,7 @@ export default function EditProfilePopup(props){
                 <input type="email" 
                 className="popup__input" 
                 id="profile__email__field" 
-                name="profile__email" 
+                name="e_mail" 
                 
                 value={email || ''} 
                 onChange={handleInputEmailChange}
@@ -89,9 +89,9 @@ export default function EditProfilePopup(props){
                 required 
                 minLength="2" 
                 maxLength="40"/>
-                <span className={`popup__error ${Validation.errors.profile__email !== '' ? 'popup__error_enabled' : ''}`}
+                <span className={`popup__error ${Validation.errors.e_mail !== '' ? 'popup__error_enabled' : ''}`}
                 id="profile__email__field-error">
-                    {Validation.errors.profile__email}
+                    {Validation.errors.e_mail}
                 </span>
             </div>
             <button className="popup__button" type="submit">{'Сохранить'}</button>

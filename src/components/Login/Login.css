@@ -57,6 +57,10 @@
     line-height: 12.1px;
 }
 
+.login__error_enabled{
+    color: rgba(238, 52, 101, 1);
+}
+
 .login__field-container:last-of-type{
     margin-bottom: 24px;
 }
